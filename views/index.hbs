@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Sandbox</title>
+        <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="./js/jquery.serializejson.js"></script>
+        <script type="text/javascript" src="./js/main.js"></script>
+        <style>
+            #map {
+                width: 100%;
+                height: 400px;
+                background-color: grey;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+
+        <div id="map"></div>
+
+        <h2>create item</h2>
+        <form id="lat-lng-form" onsubmit="return false;">
+            <input type="text" name="lat" placeholder="lat">
+            <input type="text" name="lng" placeholder="lng">
+            <input type="text" name="type" placeholder="type">
+            <button id="create">Create</button>
+        </form>
+        Result: <div id="create-result"></div>
+        <br/>
+        <h2>update item</h2>
+        <form id="update-form" onsubmit="return false;">
+            <input type="text" name="lat" placeholder="lat">
+            <input type="text" name="lng" placeholder="lng">
+            <input type="text" name="batteryLevel" placeholder="battery">
+            <input type="text" name="_id" placeholder="_id">
+            <button id="update">Update</button>
+        </form>
+        Result: <div id="update-result"></div>
+        <br/>
+        <h2>get/search/filter items</h2>
+        <br/>
+        <form id="get-items-form" onsubmit="return false;">
+            <input type="text" name="lat" placeholder="lat">
+            <input type="text" name="lng" placeholder="lng">
+            <input type="text" name="_id" placeholder="_id">
+            <input type="text" name="type" placeholder="type">
+            <button id="get-items">Get Items</button>
+        </form>
+        <br/>
+        Items: <div id="items"></div>
+        <br/>
+        <h2>get in circle</h2>
+        <br/>
+        <form id="get-in-circle-form" onsubmit="return false;">
+            <input type="text" name="lat" placeholder="lat">
+            <input type="text" name="lng" placeholder="lng">
+            <input type="text" name="radius" placeholder="radius in kilometer">
+            <button id="get-items-in-circle">Get In Circle</button>
+        </form>
+        <br/>
+        Items in circle: <div id="items-in-circle"></div>
+        <br/>
+        <h2>check is in circle</h2>
+        <br/>
+        <form id="check-in-circle-form" onsubmit="return false;">
+            <input type="text" name="lat" placeholder="lat">
+            <input type="text" name="lng" placeholder="lng">
+            <input type="text" name="_id" placeholder="_id">
+            <input type="text" name="radius" placeholder="radius in kilometer">
+            <button id="check-items-in-circle-btn">Check In Circle</button>
+        </form>
+        <br/>
+        Items in circle: <div id="check-items-in-circle"></div>
+        <br/>
+        <h2>TODO</h2>
+        <br/>+ list items
+        <br/>+ filter item by id
+        <br/>+ filter item by type
+        <br/>+ show my location
+        <br/>+ show item nearby
+        <br/>+ show item nearby somewhere
+        <br/>+ check item inside area
+        <br/>+ check item outside area
+        <br/>+ check is item in circle > if id is not matched
+        <br/>+ change user lat/lng
+        <br/>
+        <br/>0 session token management
+        <br/>0 show items in map
+        <br/>- add icon/description for item
+        <br/>- draw circle and show items
+        <br/>- insert new location, and store to location history
+        <br/>0 get location history of item
+        <br/>- draw location history of item
+        <br/>- draw heatmap of item
+        <br/>- geolocate over browser
+        <br/>- geolocate send to server by button click
+
+        
+        {{>footer}}
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJxrWICnxa_lg2ycSG-8mcXcstZILTO44&callback=mobile360.initMap" type="text/javascript"></script>
+    </body>
+</html>

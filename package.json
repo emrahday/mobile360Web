@@ -1,0 +1,17 @@
+{
+  "name": "mobile360web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "nodemon --watch views --watch js ./server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "eslint-config-airbnb": "^17.1.0",
+    "express": "^4.16.3",
+    "hbs": "^4.0.1"
+  }
+}
