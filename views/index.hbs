@@ -19,6 +19,13 @@
 
         <div id="map"></div>
 
+        <h2>geocode item</h2>
+        <form id="geocode-form" onsubmit="return false;">
+            <input type="text" name="address" placeholder="address">
+            <button id="geocode">Geocode</button>
+        </form>
+        Result: <div id="geocode-result"></div>
+
         <h2>create item</h2>
         <form id="lat-lng-form" onsubmit="return false;">
             <input type="text" name="lat" placeholder="lat">

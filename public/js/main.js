@@ -9,6 +9,14 @@
         },
         init: () => {
 
+            $('#geocode').on('click', () => {
+                const data = $('#geocode-form').serializeJSON({
+                    skipFalsyValuesForTypes: ['string'],
+                    parseNumbers: true
+                });
+                app.geocode(data);
+            });
+
             $('#create').on('click', () => {
                 const data = $('#lat-lng-form').serializeJSON({
                     skipFalsyValuesForTypes: ['string'],
@@ -47,6 +55,35 @@
                     parseNumbers: true
                 });
                 app.checkItemsInCircle(data);
+            });
+        },
+
+        geocode: async data => {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode(data, (results, status) => {
+                if (status === 'OK') {
+                    const latLng = {
+                        lat: results[0].geometry.location.lat(),
+                        lng: results[0].geometry.location.lng()
+                    };
+                    const latLntForm = $('#lat-lng-form');
+                    latLntForm.find('input[name="lat"]').val(latLng.lat);
+                    latLntForm.find('input[name="lng"]').val(latLng.lng);
+
+                    var cityCircle = new google.maps.Circle({
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#FF0000',
+                        fillOpacity: 0.35,
+                        map: map,
+                        center: latLng,
+                        radius: 27100
+                      });
+
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
             });
         },
 
